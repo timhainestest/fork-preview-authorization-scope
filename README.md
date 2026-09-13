@@ -3,9 +3,9 @@
 A fixture for measuring how far one preview-deployment authorization reaches on a pull request from a
 fork.
 
-The build writes `VERCEL_GIT_COMMIT_SHA`, the branch ref and the contents of `MARKER` into the served
-page, so the deployed URL itself says which commit was built. `MARKER` is the only thing that changes
-between test commits.
+`index.html` is a static page carrying one line, `marker=<value>`. It is the only thing that changes
+between commits, so whatever the deployed URL prints is the commit that was built. No build step, no
+configuration file and no environment variables, so nothing here is specific to a hosting provider.
 
-Connect a preview-deployment provider to this repository, set any environment variable on the project
-so fork protection arms, and push commits from a fork.
+Point a preview-deployment provider at this repository, open a pull request from a fork, and read the
+marker off the preview URL.

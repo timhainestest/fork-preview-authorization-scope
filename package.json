@@ -1,7 +1,0 @@
-{
-  "name": "vercel-fork-authorization-scope",
-  "private": true,
-  "scripts": {
-    "build": "node build.js"
-  }
-}
