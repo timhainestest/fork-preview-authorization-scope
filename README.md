@@ -1,9 +1,11 @@
-# vercel-fork-authorization-scope
+# fork-preview-authorization-scope
 
-Measures how far one Vercel fork-preview authorization reaches. Two arms, both run against a Vercel
-project connected to this repository with Git Fork Protection on.
+A fixture for measuring how far one preview-deployment authorization reaches on a pull request from a
+fork.
 
-The deployed page prints `VERCEL_GIT_COMMIT_SHA`, so the preview URL itself says which commit Vercel
-built. That is the oracle; the commit statuses are corroboration.
+The build writes `VERCEL_GIT_COMMIT_SHA`, the branch ref and the contents of `MARKER` into the served
+page, so the deployed URL itself says which commit was built. `MARKER` is the only thing that changes
+between test commits.
 
-`RUNBOOK.md` has the steps and what each outcome means.
+Connect a preview-deployment provider to this repository, set any environment variable on the project
+so fork protection arms, and push commits from a fork.
